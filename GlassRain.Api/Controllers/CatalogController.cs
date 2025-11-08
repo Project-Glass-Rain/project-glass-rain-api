@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using GlassRain.Domain.Catalog;
+using GlassRain.Data;
 
 namespace GlassRain.Api.Controllers
 {
@@ -8,6 +9,13 @@ namespace GlassRain.Api.Controllers
     [Route("catalog")]
     public class CatalogController : ControllerBase
     {
+        private readonly StoreContext _db;
+        public CatalogController(StoreContext db)
+        {
+            _db = db;
+        }
+
+
         // GET /catalog
         [HttpGet]
         public IActionResult GetItems()
@@ -18,7 +26,7 @@ namespace GlassRain.Api.Controllers
                 new Item("Shorts", "Ohio State shorts.", "Nike", 44.99m)
             };
 
-            return Ok(items);
+            return Ok(_db.Items);
         }
 
         // GET /catalog/{id}
@@ -27,7 +35,7 @@ namespace GlassRain.Api.Controllers
         {
             var item = new Item("Shirt", "Ohio State shirt.", "Nike", 29.99m);
             item.Id = id;
-            return Ok(item);
+            return Ok(_db.Items);
         }
 
         // POST /catalog
@@ -45,7 +53,7 @@ namespace GlassRain.Api.Controllers
             var item = new Item("Shirt", "Ohio State shirt.", "Nike", 29.99m);
             item.Id = id;
             item.AddRating(rating);
-            return Ok(item);
+            return Ok(_db.Items);
         }
 
         // PUT /catalog/{id}
@@ -54,7 +62,7 @@ namespace GlassRain.Api.Controllers
         {
             // Simulate update; normally you'd persist changes.
             item.Id = id;
-            return Ok(item);
+            return Ok(_db.Items);
         }
 
         // DELETE /catalog/{id}

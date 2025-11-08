@@ -1,8 +1,10 @@
+using GlassRain.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace GlassRain.Api
 {
@@ -20,6 +22,11 @@ namespace GlassRain.Api
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddDbContext<StoreContext>(options =>
+            {
+                options.UseSqlite("Data Source = ../Registrar.sqlite",
+                    b => b.MigrationsAssembly("GlassRain.Api"));
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
