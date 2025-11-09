@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Glass.Rain.Data
 {
-    public static class Dbinitializer
+    public static class DbInitializer
     {
         public static void Initialize(ModelBuilder builder)
         {
