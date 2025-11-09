@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassRain.Api", "GlassRain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassRain.Domain", "GlassRain.Domain\GlassRain.Domain.csproj", "{90687F4B-A2F9-4F41-A08D-644BBBEFC6A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassRain.Data", "GlassRain.Data\GlassRain.Data.csproj", "{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{90687F4B-A2F9-4F41-A08D-644BBBEFC6A8}.Release|x64.Build.0 = Release|Any CPU
 		{90687F4B-A2F9-4F41-A08D-644BBBEFC6A8}.Release|x86.ActiveCfg = Release|Any CPU
 		{90687F4B-A2F9-4F41-A08D-644BBBEFC6A8}.Release|x86.Build.0 = Release|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Debug|x64.Build.0 = Debug|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Debug|x86.Build.0 = Debug|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|x64.ActiveCfg = Release|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|x64.Build.0 = Release|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|x86.ActiveCfg = Release|Any CPU
+		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
