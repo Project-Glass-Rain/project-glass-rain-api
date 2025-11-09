@@ -1,7 +1,7 @@
-using Glass.Rain.Domain.Catalog;
+using GlassRain.Domain.Catalog;
 using Microsoft.EntityFrameworkCore;
 
-namespace Glass.Rain.Data
+namespace GlassRain.Data
 {
     public static class DbInitializer
     {
