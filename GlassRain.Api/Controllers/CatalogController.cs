@@ -33,17 +33,22 @@ namespace GlassRain.Api.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetItem(int id)
         {
-            var item = new Item("Shirt", "Ohio State shirt.", "Nike", 29.99m);
-            item.Id = id;
-            return Ok(_db.Items);
+            var item = _db.Items.Find(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return Ok(_db.Items.Find(id));
         }
 
         // POST /catalog
         [HttpPost]
-        public IActionResult Post([FromBody] Item item)
+        public IActionResult Post(Item item)
         {
             // Simulate creation; database wiring comes later.
-            return Created("/catalog/42", item);
+            _db.Items.Add(item);
+            _db.SaveChanges();
+            return Created($"/catalog/{item.Id}", item);
         }
 
         // POST /catalog/{id}/ratings
