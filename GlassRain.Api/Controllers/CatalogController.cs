@@ -101,16 +101,24 @@ public IActionResult PostRating(int id, [FromBody] Rating rating)
     // Return the updated item with its new rating
     return Ok(item);
 }
-        
+
 
 
 
         // DELETE /catalog/{id}
         [HttpDelete("{id:int}")]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteItem(int id)
         {
-            // Simulate deletion; return 204 No Content.
-            return NoContent();
+            var item = _db.Items.Find(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            _db.Items.Remove(item);
+            _db.SaveChanges();
+
+            return Ok();
         }
        
 
