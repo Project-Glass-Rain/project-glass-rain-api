@@ -1,4 +1,5 @@
 ﻿using GlassRain.Domain.Catalog;
+using GlassRain.Domain.Orders;
 using Microsoft.EntityFrameworkCore;
 
 namespace GlassRain.Data
@@ -9,6 +10,8 @@ namespace GlassRain.Data
         { }
         
         public DbSet<Item> Items { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
