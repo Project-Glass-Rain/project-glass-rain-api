@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassRain.Domain", "GlassRa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassRain.Data", "GlassRain.Data\GlassRain.Data.csproj", "{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassRain.Domain.Tests", "tests\GlassRain.Domain.Tests\GlassRain.Domain.Tests.csproj", "{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,8 +59,23 @@ Global
 		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|x64.Build.0 = Release|Any CPU
 		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|x86.ActiveCfg = Release|Any CPU
 		{EE8D8CD4-B7BC-4EC9-AEFC-B1C7771DE042}.Release|x86.Build.0 = Release|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Debug|x64.Build.0 = Debug|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Release|x64.Build.0 = Release|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{295DE02A-6FDD-4AD9-9BAF-742AB50A91DA} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal
