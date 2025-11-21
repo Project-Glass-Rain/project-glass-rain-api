@@ -7,7 +7,7 @@
 .env
 
 #exlude database files
-*.Registrar.sqlite
+*.sqlite
 
 # User-specific files
 *.rsuser

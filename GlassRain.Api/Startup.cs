@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Sqlite;
 
 namespace GlassRain.Api
 {
@@ -25,7 +26,17 @@ namespace GlassRain.Api
             services.AddDbContext<StoreContext>(options =>
             {
                 options.UseSqlite("Data Source = ../Registrar.sqlite",
-                    b => b.MigrationsAssembly("GlassRain.Api"));
+                    b => b.MigrationsAssembly("GlassRain.Data"));
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000")
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
             });
         }
 
@@ -40,6 +51,8 @@ namespace GlassRain.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors();
 
             app.UseRouting();
 

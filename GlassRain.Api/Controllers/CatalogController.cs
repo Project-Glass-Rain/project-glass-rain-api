@@ -9,7 +9,7 @@ using System.Linq;                    // FirstOrDefault(...)
 namespace GlassRain.Api.Controllers
 {
     [ApiController]
-    [Route("catalog")]
+    [Route("/catalog")]
     public class CatalogController : ControllerBase
     {
         private readonly StoreContext _db;
