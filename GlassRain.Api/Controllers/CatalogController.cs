@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using GlassRain.Domain.Catalog;
 using GlassRain.Data;
 using Microsoft.EntityFrameworkCore;  // Include(...)
-using System.Linq;                    // FirstOrDefault(...)
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;                    // FirstOrDefault(...)
 
 
 namespace GlassRain.Api.Controllers
@@ -107,6 +108,7 @@ public IActionResult PostRating(int id, [FromBody] Rating rating)
 
         // DELETE /catalog/{id}
         [HttpDelete("{id:int}")]
+        [Authorize("delete:catalog")]
         public IActionResult DeleteItem(int id)
         {
             var item = _db.Items.Find(id);

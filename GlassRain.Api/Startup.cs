@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
+using GlassRain.Security;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 
 namespace GlassRain.Api
 {
@@ -20,7 +23,32 @@ namespace GlassRain.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            string authority = Configuration["Auth0:Authority"] ??
+                throw new ArgumentNullException("Auth0:Authority");
+
+            string audience = Configuration["Auth0:Audience"] ??
+                throw new ArgumentNullException("Auth0:Audience");
+
             services.AddControllers();
+
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = authority;
+                    options.Audience = audience;
+                });
+
+            services.AddAuthorization(Options =>
+            {
+                Options.AddPolicy("delete:catalog", policy =>
+                    policy.RequireAuthenticatedUser().RequireClaim("scope", "delete:catalog"));
+            });
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddDbContext<StoreContext>(options =>
@@ -53,6 +81,10 @@ namespace GlassRain.Api
             app.UseHttpsRedirection();
 
             app.UseCors();
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseRouting();
 

@@ -1,0 +1,21 @@
+### Delete without auth (should fail with 401)
+//DELETE http://localhost:5241/catalog/3
+//Confirmed it works - got a 401 Unauthorized error.
+
+### GET token from Auth0
+curl --request POST \
+  --url https://dev-kzh3wvrvxm66ppef.us.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{
+    "client_id":"YFhYVQd8l7twZmeBkz35sgXba2VERvIt",
+    "client_secret":"SSMMcTlpaPIvySea55TEimkNHhq6hU_C4ITHYXarJrjp10lFBUPNlRU9jcgUcWFu",
+    "audience":"https://Glass-Rain",
+    "grant_type":"client_credentials"
+  }'
+
+### Delete with token
+DELETE http://localhost:5241/catalog/3
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjI5aE9XeUZXbVNrSkluM2pjNDBSVyJ9.eyJpc3MiOiJodHRwczovL2Rldi1remgzd3ZydnhtNjZwcGVmLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZRmhZVlFkOGw3dHdabWVCa3ozNXNnWGJhMlZFUnZJdEBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9HbGFzcy1SYWluIiwiaWF0IjoxNzYzODM2MDExLCJleHAiOjE3NjM5MjI0MTEsInNjb3BlIjoiZGVsZXRlOmNhdGFsb2ciLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJZRmhZVlFkOGw3dHdabWVCa3ozNXNnWGJhMlZFUnZJdCJ9.SKLNspiUMskRQiUaPxSNeuqtmA8VEAS1k35j7IrMjvJfSE40IbJc-1qiudflk4nxSniec5y6V-YO6_ksN-lO1NKLaTR38bojEpPj8jeqAscNbV4d-Sgibjt4NZMH00fYw8eZUZoshaJU3u8KpAB4CltZFbd0BH8HIhAmi4OdHo11up7kf2_Ddoj-_hzbMe9BzcE3fLg4lF8qL7HmjKzqhCwHUs0eH6QMu65KUa5bvprKScYk19a9r6Z-3AOAEFauqSGlVO_HGRJTa_yVvlLCNBb-HU8jtimAPoyERAvNej9c55m5b049KOgInQEVdCAe5_nxEY-YyP_gbK23U8uIKA
+
+### Simple test
+GET http://localhost:5241/catalog
